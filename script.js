@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
+    //document.write('test');
 
     'use strict';
     let tab = document.querySelectorAll('.info-header-tab');
@@ -35,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }); 
 
     // timer
-    let deadline ='2020-06-20';
+    let deadline ='2020-06-30';
 
     function getTimeRemaining(endtime){
         let et = Date.parse(endtime) - Date.parse(new Date());      
@@ -70,7 +71,24 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
     }
-
     setClock('timer',deadline);
-})
+    // modal
+    var more = document.querySelector('.more');
+    let overlay = document.querySelector('.overlay');
+    let closex = document.querySelector('.popup');
+
+    more.addEventListener('click', function() {
+        overlay.style.display ='block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closex.addEventListener('click' , function() {
+        more.classList.remove('more-splash');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+       
+    });
+
+});
 
